@@ -2,16 +2,23 @@
 # Outils de construction de style et des données SQLite de strass
 #
 
-FROM python:3
+FROM bersace/strass-runtime
 
-RUN apt-get update -y && \
+RUN set -x; \
+    apt-get update -y; \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        faketime \
+        git \
         make \
+        openssh-client \
+        phpunit \
+        python3-dev \
+        python3-pip \
         sqlite3 \
-        && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    pip install --no-cache-dir --upgrade libsass pyyaml webassets && \
+       ; \
+    apt-get clean; \
+    rm -rf /var/lib/apt/lists/*; \
+    pip3 install --upgrade pip setuptools wheel; \
+    pip install --no-cache-dir --upgrade libsass pyyaml selenium webassets; \
+    rm -rf ~/.cache/; \
     :
-
-WORKDIR /strass
