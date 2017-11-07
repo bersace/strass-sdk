@@ -19,6 +19,6 @@ RUN set -x; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/*; \
     pip3 install --upgrade pip setuptools wheel; \
-    pip install --no-cache-dir --upgrade libsass pyyaml selenium webassets; \
+    pip install --no-cache-dir --upgrade libsass pytest pyyaml selenium webassets; \
     rm -rf ~/.cache/; \
     :
