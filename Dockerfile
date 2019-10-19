@@ -7,6 +7,7 @@ FROM bersace/strass-runtime
 RUN set -ex; \
     apt-get update -y; \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        build-essential \
         faketime \
         git \
         make \
