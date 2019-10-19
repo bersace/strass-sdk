@@ -19,7 +19,11 @@ RUN set -ex; \
        ; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/*; \
-    pip3 install --upgrade pip setuptools wheel; \
-    pip install --no-cache-dir --upgrade libsass pytest pyyaml selenium webassets; \
+    :
+
+RUN set -ex; \
+    /usr/bin/pip3 install --upgrade pip setuptools wheel; \
+    /usr/local/bin/pip3 install --no-cache-dir --upgrade libsass pytest pyyaml selenium six webassets; \
+    /usr/local/bin/pip3 check; \
     rm -rf ~/.cache/; \
     :
