@@ -4,7 +4,7 @@
 
 FROM bersace/strass-runtime
 
-RUN set -x; \
+RUN set -ex; \
     apt-get update -y; \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         faketime \
