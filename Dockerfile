@@ -12,13 +12,19 @@ RUN set -ex; \
         git \
         make \
         openssh-client \
-        phpunit \
         python3-dev \
         python3-pip \
         sqlite3 \
        ; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/*; \
+    :
+
+RUN set -ex; \
+    ln -s php /usr/lib/php ; \
+    curl -Lo /usr/local/bin/phpunit https://phar.phpunit.de/phpunit-5.phar ; \
+    chmod +x /usr/local/bin/phpunit ; \
+    phpunit --version ; \
     :
 
 RUN set -ex; \
